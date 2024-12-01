@@ -1,51 +1,163 @@
+/* Variables globales */
+:root {
+  --primary-color: #4CAF50;
+  --secondary-color: #008CBA;
+  --hover-color: #005f72;
+  --text-color: #333;
+  --bg-color: #f4f4f4;
+  --white: #ffffff;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
 /* Estilos generales de la Home Page */
 .home-page {
   text-align: center;
   padding: 50px;
-  background-color: #f4f4f4;
-  height: 100vh;
+  background: linear-gradient(135deg, var(--bg-color) 0%, var(--white) 100%);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .home-header {
-  background-color: #4CAF50;
-  padding: 20px;
-  color: white;
-  border-radius: 10px;
+  background: linear-gradient(to right, var(--primary-color), #2E7D32);
+  padding: 40px;
+  color: var(--white);
+  border-radius: 15px;
   margin-bottom: 30px;
+  box-shadow: var(--shadow);
+  width: 90%;
+  max-width: 1200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1));
+  pointer-events: none;
 }
 
 .home-header h1 {
   font-size: 2.5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 .home-header p {
   font-size: 1.2rem;
-  margin-top: 10px;
+  margin: 20px 0;
+  opacity: 0.9;
 }
 
 .login-button {
-  background-color: #008CBA;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1rem;
+  background-color: var(--secondary-color);
+  color: var(--white);
+  padding: 12px 30px;
+  font-size: 1.1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   text-decoration: none;
+  transition: var(--transition);
+  display: inline-block;
+  margin-top: 20px;
+  box-shadow: var(--shadow);
 }
 
 .login-button:hover {
-  background-color: #005f72;
+  background-color: var(--hover-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.login-button:active {
+  transform: translateY(0);
 }
 
 .home-info {
-  max-width: 600px;
-  margin: 20px auto;
+  max-width: 800px;
+  margin: 40px auto;
   font-size: 1.1rem;
-  color: #333;
+  color: var(--text-color);
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  line-height: 1.8;
 }
 
+/* Nuevas clases añadidas */
+.features-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.feature-card {
+  background: var(--white);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.home-footer {
+  width: 100%;
+  padding: 20px;
+  background: var(--text-color);
+  color: var(--white);
+  margin-top: auto;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.home-header, .home-info, .feature-card {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .home-page {
+    padding: 20px;
+  }
+
+  .home-header {
+    padding: 30px 20px;
+  }
+
+  .home-header h1 {
+    font-size: 2rem;
+  }
+
+  .features-container {
+    grid-template-columns: 1fr;
+  }
+}

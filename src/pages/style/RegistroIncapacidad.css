@@ -1,0 +1,31 @@
+/* RegistrosIncapacidad.css */
+.registros-incapacidad {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .registros-incapacidad table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+  }
+  
+  .registros-incapacidad th, .registros-incapacidad td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  .registros-incapacidad th {
+    background-color: #34495e;
+    color: white;
+  }
+  
+  .registros-incapacidad tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .registros-incapacidad tr:hover {
+    background-color: #ddd;
+  }
+  

@@ -1,165 +1,161 @@
-/* Variables de diseño */
-:root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --success-color: #28a745;
-    --danger-color: #dc3545;
-    --light-color: #f8f9fa;
-    --dark-color: #343a40;
-    --text-color: #333;
-    --border-radius: 8px;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+/* Dashboard.css */
 
-/* Estilos generales del Dashboard */
+/* Contenedor principal del Dashboard */
 .dashboard {
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f6f7;
+  }
+  
+  /* Navegación */
+  .nav {
+    background-color: #34495e;
+    color: white;
+    width: 250px;
     padding: 20px;
-    background-color: var(--light-color);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Estilos de Tarjetas */
-.card {
-    border: none;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card-body {
-    padding: 25px;
-}
-
-.card-title {
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-/* Estilos de Formulario */
-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-}
-
-input, 
-select, 
-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius);
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-}
-
-input:focus, 
-select:focus, 
-textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-}
-
-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-/* Estilos de Botones */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: var(--border-radius);
-    border: none;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-}
-
-.btn-success {
-    background-color: var(--success-color);
-    color: white;
-}
-
-.btn-success:hover {
-    background-color: #218838;
-}
-
-/* Estilos de Tabla */
-.table {
-    background-color: white;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-}
-
-.table thead {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.table th, 
-.table td {
-    padding: 12px;
-    vertical-align: middle;
-}
-
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 123, 255, 0.05);
-}
-
-.table-hover tbody tr:hover {
-    background-color: rgba(0, 123, 255, 0.1);
-}
-
-/* Hora de Llegada */
-.hora-llegada {
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
     text-align: center;
-    margin-top: 15px;
-    font-size: 18px;
-    color: var(--success-color);
-    font-weight: 500;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 15px;
+  }
+  
+  .nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .nav ul li {
+    margin-bottom: 15px;
+  }
+  
+  .nav ul li a {
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .nav ul li a:hover {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  .logout-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: auto;
+    transition: background-color 0.3s;
+  }
+  
+  .logout-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Contenido del Dashboard */
+  .content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #ecf0f1;
+    overflow-y: auto;
+  }
+  
+  .content h2 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-bottom: 15px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+  }
+  
+  .card a {
+    color: #27ae60;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .card a:hover {
+    background-color: #2ecc71;
+    color: white;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
     .dashboard {
-        padding: 10px;
+      flex-direction: column;
     }
-
-    form {
-        width: 100%;
+  
+    .nav {
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      padding: 15px;
     }
-
-    .card-body {
-        padding: 15px;
+  
+    .nav h2 {
+      margin-bottom: 0;
+      border-bottom: none;
+      margin-right: 20px;
     }
-}
+  
+    .nav ul {
+      flex-direction: row;
+      margin-right: auto;
+    }
+  
+    .nav ul li {
+      margin-right: 15px;
+      margin-bottom: 0;
+    }
+  
+    .card-container {
+      grid-template-columns: 1fr;
+    }
+  }
